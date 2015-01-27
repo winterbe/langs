@@ -1,2 +1,4 @@
-Programming Languages Sandbox
+Langs
 ======================
+
+Sandbox for learning new programming languages.
