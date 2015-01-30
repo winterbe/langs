@@ -1,4 +1,4 @@
-# Python Syntax Tutorial
+# Python Syntax Tutorial: Introduction
 # https://docs.python.org/3/tutorial/introduction.html
 
 print("Hello World")
@@ -39,3 +39,28 @@ print(word[4:])
 print(len(word))
 
 print("ßßß")
+
+odds = [1, 3, 5, 7, 9, ]
+print(odds)
+print(odds[:2])
+print(odds[-1:])
+
+oddsCopy = odds[:]
+print(oddsCopy)
+print(odds + oddsCopy)
+
+oddsCopy.reverse()
+print(oddsCopy)
+print(oddsCopy.count(3))
+print(len(oddsCopy))
+
+
+# Fibonacci
+
+a, b, li = 0, 1, []
+while b < 30:
+    li.append(b)
+    a, b = b, a + b
+
+print("Fibonacci:", str(li), end="...")
+
