@@ -1,4 +1,4 @@
-Langs
+Learning new languages
 ======================
 
-Sandbox for learning new programming languages.
+This is my sandbox project for learning new programming languages.
