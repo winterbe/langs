@@ -58,3 +58,39 @@ function fun1 (a = 1, b = 2) {
 }
 
 console.log(fun1(0));
+
+
+// Classes
+
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+
+let hans = new Person("Hans", "Meiser");
+console.log(hans.fullName());
+
+class Customer extends Person {
+    constructor(firstName, lastName, email) {
+        super(firstName, lastName);
+        this.email = email;
+    }
+
+    fullName() {
+        return super.fullName().toUpperCase();
+    }
+
+    spam() {
+        console.log(`sending spam to: ${this.email}`);
+    }
+}
+
+let peter = new Customer("Peter", "Parker", "peter@parker.com");
+console.log(peter.fullName());
+peter.spam();
