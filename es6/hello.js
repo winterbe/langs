@@ -100,3 +100,6 @@ let names = new Set(["Benni", "Jens", "Gerrit"]);
 
 console.log(names.has("Peter"));
 console.log(names.has("Gerrit"));
+
+// this doesn't work
+names.forEach(function(n){console.log(n)})
