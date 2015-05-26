@@ -1,7 +1,10 @@
+let log = console.log;
+
+
 // Constants
 
 const HELLO = "Hello";
-console.log(HELLO);
+log(HELLO);
 
 // HELLO = "Uff";  => Error: HELLO is read-only
 
@@ -15,21 +18,21 @@ for (let i = 0; i < 5; i++) {
 }
 
 try {
-    console.log(i);
+    log(i);
 } catch (e) {
-    console.log("cannot access scope-blocked variable:", e.message);
+    log("cannot access scope-blocked variable:", e.message);
 }
 
 
 // Block-Scoped functions
 
 function foo() {
-    console.log("foo1");
+    log("foo1");
 }
 
 {
     function foo() {
-        console.log("foo2");
+        log("foo2");
     }
     foo();
 }
@@ -42,13 +45,13 @@ foo();
 var global = this;
 
 function bar(fn) {
-    console.log(this === "myContext");
+    log(this === "myContext");
     fn();
-    let fn2 = () => console.log(this === "myContext");
+    let fn2 = () => log(this === "myContext");
     fn2();
 }
 
-bar.call("myContext", () => console.log(this === "myContext"));
+bar.call("myContext", () => log(this === "myContext"));
 
 
 // Default parameter values
@@ -57,7 +60,7 @@ function fun1 (a = 1, b = 2) {
     return a + b;
 }
 
-console.log(fun1(0));
+log(fun1(0));
 
 
 // Classes
@@ -68,13 +71,23 @@ class Person {
         this.lastName = lastName;
     }
 
+    get age() {
+        return this._age;
+    }
+
+    set age(age) {
+        log(`setting age from ${this._age ? this._age : '?'} to ${age}`);
+        this._age = age;
+    }
+
     fullName() {
         return `${this.firstName} ${this.lastName}`;
     }
 }
 
 let hans = new Person("Hans", "Meiser");
-console.log(hans.fullName());
+hans.age = 18;
+log(hans.fullName());
 
 class Customer extends Person {
     constructor(firstName, lastName, email) {
@@ -87,10 +100,10 @@ class Customer extends Person {
     }
 
     spam() {
-        console.log(`sending spam to: ${this.email}`);
+        log(`sending spam to: ${this.email}`);
     }
 }
 
 let peter = new Customer("Peter", "Parker", "peter@parker.com");
-console.log(peter.fullName());
+log(peter.fullName());
 peter.spam();
