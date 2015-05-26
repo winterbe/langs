@@ -108,11 +108,11 @@ let peter = new Customer("Peter", "Parker", "peter@parker.com");
 log(peter.fullName());
 peter.spam();
 
+
 // Sets
-let names = new Set(["Benni", "Jens", "Gerrit"]);
+let names = new Set(["Benny", "Jens", "Gerrit"]);
 
-console.log(names.has("Peter"));
-console.log(names.has("Gerrit"));
+log(names.has("Peter"));
+log(names.has("Gerrit"));
 
-// this doesn't work
-names.forEach(function(n){console.log(n)})
+names.forEach((n) => log(n));
