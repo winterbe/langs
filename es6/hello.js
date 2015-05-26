@@ -9,7 +9,6 @@ log(HELLO);
 // HELLO = "Uff";  => Error: HELLO is read-only
 
 
-
 // Block-Scoped variables
 
 let sum = 0;
@@ -34,6 +33,7 @@ function foo() {
     function foo() {
         log("foo2");
     }
+
     foo();
 }
 
@@ -107,3 +107,12 @@ class Customer extends Person {
 let peter = new Customer("Peter", "Parker", "peter@parker.com");
 log(peter.fullName());
 peter.spam();
+
+// Sets
+let names = new Set(["Benni", "Jens", "Gerrit"]);
+
+console.log(names.has("Peter"));
+console.log(names.has("Gerrit"));
+
+// this doesn't work
+names.forEach(function(n){console.log(n)})
