@@ -102,11 +102,16 @@ class Customer extends Person {
     spam() {
         log(`sending spam to: ${this.email}`);
     }
+
+    static boo() {
+        log("ha!");
+    }
 }
 
 let peter = new Customer("Peter", "Parker", "peter@parker.com");
 log(peter.fullName());
 peter.spam();
+Customer.boo();
 
 
 // Sets
@@ -115,4 +120,55 @@ let names = new Set(["Benny", "Jens", "Gerrit"]);
 log(names.has("Peter"));
 log(names.has("Gerrit"));
 
-names.forEach((n) => log(n));
+names.forEach(name => log(name));
+
+
+// Objects
+
+function whee () {
+    log("woohoo!");
+}
+
+var obj = {
+    whee,
+    toString() {
+        return "MyObj";
+    },
+    [21 + 21]: 42
+};
+
+obj.whee();
+log(obj.toString());
+log(obj[42]);
+
+
+// Strings
+
+log(`Calling obj.toString() results in: ${obj.toString()}`);
+log(`I am
+the god
+of hell fire!`);
+
+
+// Destructuring
+
+var [a, , b] = [1, 2, 3];
+log(`a=${a}; b=${b}`);
+
+var {firstName, lastName} = new Person("Peter", "Parker");
+log(`firstName=${firstName}; lastName=${lastName}`);
+
+function p({firstName: x}) {
+    log("firstName passed:", x);
+}
+p(new Person("Peter", "Parker"));
+
+
+// Rest
+
+function g(x, ...a) {
+    log("x:", x);
+    log("Rest:", a.length);
+}
+g("foo", "bar", "foobar");
+g(...[1, 2, 3, 4]);
