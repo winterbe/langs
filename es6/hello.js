@@ -206,3 +206,21 @@ for (let n of fibonacci()) {
     if (n > 21) break;
     log(n);
 }
+
+
+// Iterators
+
+let myRandom = {
+    [Symbol.iterator]: function* () {
+        let i = 0;
+        while (true) {
+            i+= Math.floor(Math.random() * 10) + 1;
+            yield i;
+        }
+    }
+};
+
+for (let n of myRandom) {
+    if (n > 100) break;
+    log(n);
+}
