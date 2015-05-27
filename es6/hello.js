@@ -172,3 +172,37 @@ function g(x, ...a) {
 }
 g("foo", "bar", "foobar");
 g(...[1, 2, 3, 4]);
+
+
+// Loops
+
+var a2 = [3, 5, 7];
+a2.foo = "bar";
+
+for (let i in a2) {
+    log(i);     // keys
+}
+
+for (let i of a2) {
+    log(i);     // values
+}
+
+a2.forEach((val, i) => {
+    log(`a2[${i}] = ${val}`);
+});
+
+
+// Generator functions
+
+function* fibonacci() {
+    let [prev, curr] = [0, 1];
+    while (true) {
+        [prev, curr] = [curr, prev + curr];
+        yield curr;
+    }
+}
+
+for (let n of fibonacci()) {
+    if (n > 21) break;
+    log(n);
+}
