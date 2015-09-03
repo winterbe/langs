@@ -12,7 +12,7 @@ fun main(args: Array<String>) {
 
     println("3 + 5 = ${sum(3, 5)}")
 
-    fun max(a: Int, b: Int) = if (a > b) b else a
+    fun max(a: Int, b: Int) = if (a > b) a else b
 
     println(max(3, 5))
 
