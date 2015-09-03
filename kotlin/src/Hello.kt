@@ -1,3 +1,6 @@
+import Customer
+import java.util.ArrayList
+
 data class Customer(val name: String, val email: String)
 
 fun main(args: Array<String>) {
@@ -5,6 +8,10 @@ fun main(args: Array<String>) {
 
     val customer = Customer("John Smith", "john@smith.com")
     println(customer)
+
+    val (name, email) = customer;
+    println("${name}: ${email}")
+
 
     fun sum(a: Int, b: Int): Int {
         return a + b;
@@ -14,6 +21,16 @@ fun main(args: Array<String>) {
 
     fun max(a: Int, b: Int) = if (a > b) a else b
 
-    println(max(3, 5))
+    println("max: ${max(3, 5)}")
 
+
+    val list = ArrayList<String>();
+    list.add("f1")
+    list.add("f2")
+    list.add("f3")
+    list.add("h1")
+
+    list filter { it.startsWith("f") } map { it.substring(1) } forEach { println(it) }
+
+    
 }
