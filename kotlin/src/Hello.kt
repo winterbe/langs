@@ -1,5 +1,3 @@
-package com.winterbe.kotlin
-
 data class Customer(val name: String, val email: String)
 
 fun main(args: Array<String>) {
