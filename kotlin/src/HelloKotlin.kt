@@ -32,5 +32,11 @@ fun main(args: Array<String>) {
 
     list filter { it.startsWith("f") } map { it.substring(1) } forEach { println(it) }
 
-    
+    val peter = Person(firstName = "Peter", lastName = "Parker")
+    peter.age = 23
+
+    println(peter.fullName())
+    println(peter.age)
+    println(peter.nothing().isNullOrBlank())
+    println(peter.something().isNullOrBlank())
 }
