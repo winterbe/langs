@@ -57,4 +57,8 @@ fun main(args: Array<String>) {
 
     val address2 = address.copy(street = "Bam Avg 3")
     println(address2)
+
+    val my = MyClass()
+    val point = my.getPoint()
+    println(point)
 }
