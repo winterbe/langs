@@ -4,25 +4,22 @@ import UIKit
 
 var str = "Hello, playground"
 
-let swiftTeam: Int = 13
-let iOSTeam = 54
-let otherTeams = 48
+let a = 3
+let b = 7
+var c = a + b
+c += 3
 
-var totalTeam = swiftTeam + iOSTeam + otherTeams
-totalTeam += 1
+let foo: Bool = true
 
-let priceInferred = 19.99
-let priceExplicit: Double = 19.99
-
-let onSaleInferred = true
-let onSaleExplicit: Bool = true
-
-let nameInferred = "Foo"
-let nameExplicit: String = "Foo"
-
-if onSaleInferred {
-    print("\(nameInferred) on sale for \(priceInferred)")
+if (foo) {
+    print("the answer is \(a)")
 } else {
-    print("\(nameInferred) at regular price: \(priceInferred)")
+    print("the answer is \(b)")
 }
+
+func sum(a: Int, b: Int) -> Int {
+    return a + b
+}
+
+sum(17, b: 3)
 
