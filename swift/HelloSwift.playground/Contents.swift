@@ -61,3 +61,29 @@ switch vegetable {
     default:
         print("ddd")
 }
+
+
+let stuff = [
+    "a": [1, 2, 3],
+    "b": [2, 3, 4],
+    "c": [3, 4, 5]
+]
+
+for (key, value) in stuff {
+    for num in value {
+        print("\(key): \(num)")
+    }
+}
+
+
+for i in 0..<4 {
+    print(i)
+}
+
+
+func greet(name: String, day: String?) -> String {
+    let actualDay = day ?? "awesome"
+    return "Hello \(name), today is \(actualDay)!"
+}
+
+greet("Peter", day: nil)
