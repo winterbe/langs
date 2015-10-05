@@ -102,6 +102,6 @@ try mightThrowError()
 
 
 let symbol: String = "W" + "\u{20DD}"
-print(symbol.characters.count)  // W⃝
+print(symbol.characters.count)  // 1
 
 
