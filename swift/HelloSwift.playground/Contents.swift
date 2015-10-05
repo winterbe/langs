@@ -87,3 +87,21 @@ func greet(name: String, day: String?) -> String {
 }
 
 greet("Peter", day: nil)
+
+
+let num1 = 1
+if -num1 < 0 {
+    print("boom")
+}
+
+func mightThrowError() throws {
+    
+}
+
+try mightThrowError()
+
+
+let symbol: String = "W" + "\u{20DD}"
+print(symbol.characters.count)  // W⃝
+
+
