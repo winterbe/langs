@@ -101,7 +101,72 @@ func mightThrowError() throws {
 try mightThrowError()
 
 
-let symbol: String = "W" + "\u{20DD}"
-print(symbol.characters.count)  // 1
+func fun1(foo: String, bar: String) -> String {
+    return foo + bar
+}
+print(fun1("a", bar: "b"))
+
+func fun2(a foo: String, a bar: String) {
+    
+}
+fun2(a: "a", a: "b")
+
+func fun3(a: Int, _ b: Int) {
+    
+}
+fun3(1, 2)
+
+func fun4(a: Int, b: Int = 2, c: Int = 3) -> Int {
+    return a + b + c
+}
+
+fun4(1)
+fun4(1, c: 4)
+fun4(1, b: 5, c: 7)
+
+func fun5(var first result: Int, rest: Int...) -> Int {
+    for num in rest {
+        result += num
+    }
+    return result
+}
+fun5(first: 23, rest: 1, 3, 5, 7, 9)
+
+func fun6(possibleNumber: Int?) -> Int {
+    guard let num = possibleNumber else {
+        return -1
+    }
+    return num + 1
+}
+fun6(3)
+
+func fun7() {
+    for _ in 1...5 {
+        print("HODOR")
+    }
+}
+fun7()
+
+
+func fun8(var name: String) {
+    name += "-HODOR"
+    print("inside func: \(name)")
+}
+
+let name = "HODOR"
+fun8(name)
+print("outside func: \(name)")
+
+
+
+
+
+
+
+
+
+
+
+
 
 
