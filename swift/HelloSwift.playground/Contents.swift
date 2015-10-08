@@ -158,7 +158,7 @@ fun8(name)
 print("outside func: \(name)")
 
 
-func fun9(inout a: Int, inout _ b: Int) {
+func swapInts(inout a: Int, inout _ b: Int) {
     let temp = a
     a = b
     b = temp
@@ -167,7 +167,7 @@ func fun9(inout a: Int, inout _ b: Int) {
 var aa = 3
 var bb = 107
 
-fun9(&aa, &bb)
+swapInts(&aa, &bb)
 print("aa=\(aa); bb=\(bb)")     // aa=107; bb=3
 
 
