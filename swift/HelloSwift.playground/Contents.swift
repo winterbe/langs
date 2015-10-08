@@ -158,15 +158,51 @@ fun8(name)
 print("outside func: \(name)")
 
 
+func fun9(inout a: Int, inout _ b: Int) {
+    let temp = a
+    a = b
+    b = temp
+}
+
+var aa = 3
+var bb = 107
+
+fun9(&aa, &bb)
+print("aa=\(aa); bb=\(bb)")     // aa=107; bb=3
 
 
+func addTwoInts(a: Int, _ b: Int) -> Int {
+    return a + b
+}
+
+func multiplyTwoInts(a: Int, _ b: Int) -> Int {
+    return a * b
+}
+
+var mathFunction: (Int, Int) -> Int = addTwoInts
+print(mathFunction(3, 4))
+
+mathFunction = multiplyTwoInts
+print(mathFunction(3, 4))
+
+func printMathResult(fn: (Int, Int) -> Int, _ a: Int, _ b: Int) {
+    print("Result: \(fn(a, b))")
+}
+printMathResult(addTwoInts, 5, 7)
 
 
+func stepForward(input: Int) -> Int {
+    return input + 1
+}
 
+func stepBackward(input: Int) -> Int {
+    return input - 1
+}
 
+func chooseStepFn(backwards: Bool) -> (Int) -> Int {
+    return backwards ? stepBackward : stepForward
+}
 
-
-
-
+chooseStepFn(false)(3)  // 4
 
 
