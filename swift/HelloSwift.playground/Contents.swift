@@ -226,6 +226,48 @@ let otherThings = 1...5
 print(otherThings.map {"HODOR\($0)"})
 
 
+enum MyEnum {
+    case Something(Int)
+    case Other(String)
+}
+
+var myEnumValue = MyEnum.Something(23)
+myEnumValue = .Other("abc")
+
+enum ASCIIControlCharacter: Character {
+    case Tab = "\t"
+    case LineFeed = "\n"
+    case CarriageReturn = "\r"
+}
+
+ASCIIControlCharacter.Tab.rawValue
+ASCIIControlCharacter(rawValue: "\t")
+
+
+indirect enum ArithmeticExpression {
+    case Number(Int)
+    case Addition(ArithmeticExpression, ArithmeticExpression)
+    case Multiplication(ArithmeticExpression, ArithmeticExpression)
+}
+
+func evaluate(expression: ArithmeticExpression) -> Int {
+    switch expression {
+    case .Number(let value):
+        return value
+    case .Addition(let left, let right):
+        return evaluate(left) + evaluate(right)
+    case .Multiplication(let left, let right):
+        return evaluate(left) * evaluate(right)
+    }
+}
+
+let two = ArithmeticExpression.Number(2)
+let three = ArithmeticExpression.Number(3)
+let five = ArithmeticExpression.Number(5)
+let sum = ArithmeticExpression.Addition(two, three)
+let product = ArithmeticExpression.Multiplication(sum, five)
+
+print(evaluate(product))    // 25
 
 
 
