@@ -271,4 +271,77 @@ print(evaluate(product))    // 25
 
 
 
+struct Resolution {
+    var width = 0
+    var height = 0
+}
+
+
+var res1 = Resolution(width: 1024, height: 786)
+var res2 = res1
+
+res2.width = 640
+print(res1.width)
+
+var array1 = [1, 2, 3]
+var array2 = array1
+print(array1 == array2) // true
+array2.append(4)
+print(array1 == array2) // false
+print(array1)           // 1, 2, 3
+print(array2)           // 1, 2, 3, 4
+
+
+
+class VideoMode {
+    var resolution = Resolution(width: 1024, height: 768)
+    var name: String? = nil
+    var frameRate = 25.0
+}
+
+var mode1 = VideoMode()
+var mode2 = VideoMode()
+var mode3 = mode2
+
+print(mode1 === mode2)
+print(mode2 === mode3)
+
+func changeMode(var mode: VideoMode) {
+    mode = VideoMode()
+}
+changeMode(mode3)
+print(mode2 === mode3)
+
+
+class Level3 {
+    var name = "level3"
+}
+
+struct Level2 {
+    var name = "level2"
+    var next = Level3()
+}
+
+struct Level1 {
+    var name = "level1"
+    var next = Level2()
+}
+
+var aLevel = Level1()
+var bLevel = aLevel
+aLevel.name = "customLevel1"
+aLevel.next.name = "customLevel2"
+aLevel.next.next.name = "customLevel3"
+
+print(aLevel.name)
+print(aLevel.next.name)
+print(aLevel.next.next.name)
+print(bLevel.name)
+print(bLevel.next.name)
+print(bLevel.next.next.name)
+
+
+
+
+
 
