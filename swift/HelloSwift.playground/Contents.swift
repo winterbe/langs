@@ -206,3 +206,27 @@ func chooseStepFn(backwards: Bool) -> (Int) -> Int {
 chooseStepFn(false)(3)  // 4
 
 
+
+let things = ["b1", "c1", "a4", "a2", "b3"]
+
+func backwards(s1: String, _ s2: String) -> Bool {
+    return s1 > s2
+}
+
+things.sort(backwards)
+things.sort({(s1: String, s2: String) -> Bool in return s1 > s2})
+things.sort({s1, s2 in s1 > s2})
+things.sort({$0 > $1})
+things.sort() {$0 > $1}
+things.sort {$0 > $1}
+things.sort(>)
+
+
+let otherThings = 1...5
+print(otherThings.map {"HODOR\($0)"})
+
+
+
+
+
+
